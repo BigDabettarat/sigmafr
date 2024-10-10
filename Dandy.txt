@@ -1,0 +1,273 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Waffle Development",IntroText = "Dandy's World", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+    Name = "Toons",
+    Icon = "rbxassetid://72699937939371",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Any Main As Starter"
+})
+
+Tab:AddButton({
+	Name = "Pebble",
+	Callback = function()
+        local args = {
+            [1] = "Pebble"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("EarnTutorialTower"):InvokeServer(unpack(args))
+
+        game:GetService("ReplicatedStorage"):WaitForChild("CheckTutorial"):InvokeServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Vee",
+	Callback = function()
+        local args = {
+            [1] = "Vee"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("EarnTutorialTower"):InvokeServer(unpack(args))
+
+        game:GetService("ReplicatedStorage"):WaitForChild("CheckTutorial"):InvokeServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Shelly",
+	Callback = function()
+        local args = {
+            [1] = "Shelly"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("EarnTutorialTower"):InvokeServer(unpack(args))
+
+        game:GetService("ReplicatedStorage"):WaitForChild("CheckTutorial"):InvokeServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Sprout",
+	Callback = function()
+        local args = {
+            [1] = "Sprout"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("EarnTutorialTower"):InvokeServer(unpack(args))
+
+        game:GetService("ReplicatedStorage"):WaitForChild("CheckTutorial"):InvokeServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Astro",
+	Callback = function()
+        local args = {
+            [1] = "Astro"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("EarnTutorialTower"):InvokeServer(unpack(args))
+
+        game:GetService("ReplicatedStorage"):WaitForChild("CheckTutorial"):InvokeServer()
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "Fake Vote!"
+})
+
+Tab:AddButton({
+	Name = "Dandy",
+	Callback = function()
+        local args = {
+            [1] = "Dandy"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+Tab:AddButton({
+	Name = "Vee",
+	Callback = function()
+        local args = {
+            [1] = "Vee"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+Tab:AddButton({
+	Name = "Shelly",
+	Callback = function()
+        local args = {
+            [1] = "Shelly"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+Tab:AddButton({
+	Name = "Sprout",
+	Callback = function()
+        local args = {
+            [1] = "Sprout"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+Tab:AddButton({
+	Name = "Astro",
+	Callback = function()
+        local args = {
+            [1] = "Astro"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+Tab:AddButton({
+	Name = "Pebble",
+	Callback = function()
+        local args = {
+            [1] = "Pebble"
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Voted"):InvokeServer(unpack(args))
+	end
+})
+
+local Tab = Window:MakeTab({
+    Name = "Misc",
+    Icon = "rbxassetid://8977566136",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Speed"
+})
+
+Tab:AddButton({
+	Name = "Bypass Speed Check (PRESS)",
+	Callback = function()
+        local eventsFolder = game.ReplicatedStorage.Events
+        local deathEvent = eventsFolder:FindFirstChild("CheckPlayerSpeed")
+
+        if deathEvent then
+            deathEvent:Destroy()
+            print("Bypass Completed.")
+        else
+            print("Not Found Already Bypassed.")
+        end
+	end
+})
+
+Tab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 2,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "Visual"
+})
+
+Tab:AddButton({
+	Name = "Player ESP",
+	Callback = function()
+	    local FillColor = Color3.fromRGB(0,0,255) local DepthMode = "AlwaysOnTop" local FillTransparency = 0.5 local OutlineColor = Color3.fromRGB(255,255,255) local OutlineTransparency = 0.5 local CoreGui = game:FindService("CoreGui") local Players = game:FindService("Players") local lp = Players.LocalPlayer local connections = {} local Storage = Instance.new("Folder") Storage.Parent = CoreGui Storage.Name = "Highlight_Storage" local function Highlight(plr) local Highlight = Instance.new("Highlight") Highlight.Name = plr.Name Highlight.FillColor = FillColor Highlight.DepthMode = DepthMode Highlight.FillTransparency = FillTransparency Highlight.OutlineColor = OutlineColor Highlight.OutlineTransparency = 0.5 Highlight.Parent = Storage local plrchar = plr.Character if plrchar then Highlight.Adornee = plrchar end connections[plr] = plr.CharacterAdded:Connect(function(char) Highlight.Adornee = char end) end Players.PlayerAdded:Connect(Highlight) for i,h in next, Players:GetPlayers() do Highlight(h) end Players.PlayerRemoving:Connect(function(plr) local plrname = plr.Name if Storage[plrname] then Storage[plrname]:Destroy() end if connections[plr] then connections[plr]:Disconnect() end end)
+	end
+})
+
+local runservice = game:GetService("RunService")
+local esp = Instance.new("Highlight")
+esp.Name = "hl"
+esp.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+esp.OutlineTransparency = 1
+
+Tab:AddButton({
+	Name = "Monster ESP",
+	Callback = function()
+	    for _,k in pairs(game.Workspace.CurrentRoom:GetChildren()) do
+        if k:IsA("Model") then
+            local room = k
+            for _,v in pairs(room:FindFirstChild("Monsters"):GetChildren()) do
+                local folder = v
+                runservice.Heartbeat:Connect(function()
+                    for _, v in pairs(folder:GetChildren()) do
+                        repeat Wait() until v
+                        if not v:FindFirstChild("hl") then
+                            local hlclone = esp:Clone()
+                            hlclone.Adornee = v
+                            hlclone.Parent = v
+                        end
+                    end
+                end)
+            end
+        end
+       end
+	end
+})
+
+local Section = Tab:AddSection({
+	Name = "Esp Is A Little Broken So Be Aware It Might Break!"
+})
+
+local Tab = Window:MakeTab({
+    Name = "Credits",
+    Icon = "rbxassetid://72699937939371",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Credits: Worm And His Waffle Development And"
+})
+
+local Section = Tab:AddSection({
+	Name = "The Dandy's Bin Scripting Team"
+})
+
+Tab:AddButton({
+	Name = "Destroy",
+	Callback = function()
+	    OrionLib:Destroy()
+	end
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
