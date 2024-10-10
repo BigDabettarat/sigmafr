@@ -77,13 +77,6 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
-	Name = "Destroy",
-	Callback = function()
-	    OrionLib:Destroy()
-	end
-})
-
 local Section = Tab:AddSection({
 	Name = "Fake Vote!"
 })
@@ -244,7 +237,18 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "Credits: Worm And His Waffle Development And The Dandy's Bin Scripting Team"
+	Name = "Credits: Worm And His Waffle Development And"
+})
+
+local Section = Tab:AddSection({
+	Name = "The Dandy's Bin Scripting Team"
+})
+
+Tab:AddButton({
+	Name = "Destroy",
+	Callback = function()
+	    OrionLib:Destroy()
+	end
 })
 
 
